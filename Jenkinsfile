@@ -29,6 +29,22 @@ pipeline{
 			steps{
 
 				echo 'Publishing Artifacts'
+				
+				script{
+					def server = Artifactory.server 'iwayqartifactory'
+				def uploadSpec = """{
+  "files": [
+    {
+      "pattern": "target/*.war",
+      "target": "libs-release"
+    }
+ ]
+}"""
+server.upload(uploadSpec)
+def buildInfo = server.upload uploadSpec
+server.publishBuildInfo buildInfo
+}
+
 			}
 		}
 		stage('Deploy') {
