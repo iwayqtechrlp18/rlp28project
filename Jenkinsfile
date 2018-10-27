@@ -19,6 +19,9 @@ pipeline{
 
 			steps{
 				echo 'Code Quality is running'
+				sh '/opt/apache-maven-3.5.4/bin/mvn sonar:sonar \
+  -Dsonar.host.url=http://54.227.227.247:9000 \
+  -Dsonar.login=70791df898c84e79a05a84531d1704f4dc980f34'
 			}
 		}
 		stage('Publish Artifacts') {
