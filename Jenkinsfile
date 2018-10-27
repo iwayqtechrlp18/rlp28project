@@ -1,0 +1,75 @@
+pipeline{
+	agent any
+	stages{
+		stage('SCM Checkout') {
+			steps{
+
+				git 'https://github.com/iwayqtechrlp18/rlp28project.git'
+			}
+		}
+		stage('Maven Build'){
+
+			steps{
+
+				sh 'mvn package'
+			}
+
+		}
+		stage('Code Quality Check') {
+
+			steps{
+				echo 'Code Quality is running'
+			}
+		}
+		stage('Publish Artifacts') {
+
+			steps{
+
+				echo 'Publishing Artifacts'
+			}
+		}
+		stage('Deploy') {
+
+			steps{
+
+				echo 'Deploying to Test Server'
+			}
+		}
+		stage('Testing') {
+			steps{
+
+				echo 'Tesging is going on'
+			}
+
+
+		}
+
+		stage('Provide Apprivals') {
+			steps{
+
+				echo 'Apprvals stage'
+			}
+
+
+		}
+		stage('Prod Deploy'){
+
+			steps{
+
+				echo 'Prod Deployments'
+			}
+		}
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+}
