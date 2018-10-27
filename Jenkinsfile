@@ -11,7 +11,7 @@ pipeline{
 
 			steps{
 
-				sh '/opt/apache-maven-3.5.4/bin/mvn package'
+				sh 'mvn package'
 			}
 
 		}
@@ -47,7 +47,7 @@ pipeline{
 		stage('Provide Apprivals') {
 			steps{
 
-				echo 'Apprvals stage'
+				input('Please provide Approvals?')
 			}
 
 
